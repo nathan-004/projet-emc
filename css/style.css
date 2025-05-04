@@ -78,6 +78,56 @@ canvas {
     cursor: pointer;
 }
 
+/*----------------------Menu--------------------------*/
+#headerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.486);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    width: 100%;
+    gap: 20px;
+}
+
+.left-header-container, .right-header-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header-title-container {
+    width: 100%;
+}
+
+.right-header-container {
+    padding: 10px;
+}
+
+#logo {
+    height: 150px;
+    width: auto;
+}
+
+#headerContainer h1 {
+    font-size: 2em;
+    margin: 0px;
+    text-decoration: underline;
+}
+
+.right-header-container p {
+    font-style: italic;
+    font-size: 1.25em;
+}
+
+#tags {
+    color: rgb(68, 0, 114);
+    font-size: 1.50em;
+}
+
 /*----------------------Header------------------------*/
 #header {
     height: 100vh;
@@ -96,12 +146,8 @@ canvas {
     text-align: center;
     color: white;
     background-color: black;
-    padding: 10px;
+    padding: 50px;
     z-index: 2;
-}
-
-.header-content h1 {
-    font-size: 4em;
 }
 
 ul {

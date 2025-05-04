@@ -67,6 +67,7 @@ function scrollToSection(index, isWheel = false) {
 
 function initNavButtons() {
   const container = document.getElementById("button-container");
+  let index = 0;
 
   sections.forEach(element => {
     const button = document.createElement("div");
