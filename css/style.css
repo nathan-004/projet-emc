@@ -45,6 +45,7 @@ canvas {
     position: relative;
     top: 0;
     left: 0;
+    z-index: 1;
 }
 
 /*----------------------Boutons Navigation----------------------*/
@@ -80,7 +81,7 @@ canvas {
 /*----------------------Header------------------------*/
 #header {
     height: 100vh;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     margin: 0;
     padding: 0;
     border: white 1px solid;
@@ -96,6 +97,7 @@ canvas {
     color: white;
     background-color: black;
     padding: 10px;
+    z-index: 2;
 }
 
 .header-content h1 {
@@ -113,6 +115,7 @@ ul {
 
 /*----------------------Introduction-----------------------*/
 #introduction {
+    position: relative;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -122,16 +125,19 @@ ul {
 }
 
 .introduction-content {
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
+    background-color: black;
+    z-index: 2;
 }
 
 /*----------------------Définition------------------------*/
 #definition {
+    position: relative;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -141,16 +147,18 @@ ul {
 }
 
 .definition-content {
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
+    z-index: 2;
 }
 
 /*----------------------Histoire------------------------*/
 #histoire {
+    position: relative;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -160,12 +168,13 @@ ul {
 }
 
 .histoire-content {
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
+    z-index: 2;
 }
 
 #events-timeline {
