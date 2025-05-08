@@ -48,6 +48,96 @@ canvas {
     z-index: 1;
 }
 
+/*----------------------Popup-----------------------*/
+#popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10; /*Header à 5*/
+    background-color: #000000d7;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#popup {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    padding: 15px 0px;
+    max-width: 500px;
+}
+
+#popup-content {
+    padding: 5px 10px;
+}
+
+#popup-image {
+    border-radius: 2.5%;
+    width: 100%;
+    height: auto;
+}
+
+#close-button {
+    z-index: 15;
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    color: transparent;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 10px; /* Distance from the top of the container */        
+    right: 10px; /* Distance from the right of the container */
+    transform: none; /* Remove centering transformation */
+    letter-spacing: 1.5px;
+    line-height: 90px;
+    outline: none;
+    overflow: hidden;
+    padding: 10px 0 0;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in;
+    width: 100px;
+}
+
+#close-button::before,
+#close-button::after {
+    background-color: rgb(255, 255, 255);
+    content: '';
+    display: block;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    transform-origin: center left;
+    transition: all 0.2s ease-in;
+    width: 141.4214px;
+    z-index: -1;
+}
+
+#close-button::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+#close-button::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+#close-button:hover {
+    color: #8A2387;
+}
+
+#close-button:hover::before,
+#close-button:hover::after {
+    height: 50px;
+    transform: rotate(0deg);
+}
+
 /*----------------------Boutons Navigation----------------------*/
 #button-container {
     position: fixed;
@@ -59,7 +149,7 @@ canvas {
     height: 100%;
     padding: 0px 15px;
     gap: 5px;
-    z-index: 1000;
+    z-index: 7;
     background-color: transparent;
 }
 

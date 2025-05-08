@@ -21,6 +21,26 @@ const canvasColor = [
 let canvas = document.getElementById(canvasID[currentSection]);
 let ctx = canvas.getContext('2d');
 
+document.getElementById("close-button").addEventListener("click", event => {
+  document.getElementById("popup-container").style.display = "none";
+});
+
+function popup(title, text, img_src="", backgroundColor="white") {
+  document.getElementById("title").innerHTML = title;
+  document.getElementById("texte").innerHTML = text;
+  
+  if (img_src == "") {
+    document.getElementById("popup-image").style.display = "none";
+  }
+  else {
+    document.getElementById("popup-image").src = img_src;
+  }
+
+  document.getElementById("popup").style.backgroundColor = backgroundColor;
+
+  document.getElementById("popup-container").style.display = "initial";
+}
+
 const cellSize = 50; // Taille d'une cellule
 let rows, cols;
 let hoverCell = { row: -1, col: -1 };
@@ -166,3 +186,4 @@ function setCanvas() {
 window.addEventListener('resize', resizeCanvas);
 
 resizeCanvas();
+popup("Bienvenue", 'Vous vous trouvez sur une page définissant le terme "populisme politique".</br> Voici quelques conseils pour une expérience optimale : </br>- Regarder le site sur un ordinateur </br>- Ne pas utiliser Firefox </br> </br><span style="text-align: right;">Cordialement</span>', "images/default_image.webp", "white")
