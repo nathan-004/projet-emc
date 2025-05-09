@@ -16,6 +16,7 @@ const canvasColor = [
   ["lightgray", "black", "black"],
   ["white", "black", "black"],
   ["white", "black", "black"],
+  ["white", "black", "black"],
 ];
 
 let canvas = document.getElementById(canvasID[currentSection]);
@@ -84,6 +85,14 @@ function scrollToSection(index, isWheel = false) {
     }, 600);
   }
 }
+
+const container = document.getElementById('ressources-list');
+
+// Scroll avec la molette (verticale) convertie en scroll horizontal
+container.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  container.scrollLeft += e.deltaY;
+}, { passive: false });
 
 function initNavButtons() {
   const container = document.getElementById("button-container");

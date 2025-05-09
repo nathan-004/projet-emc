@@ -24,7 +24,7 @@
 
         <div id="headerContainer">
             <div class="left-header-container">
-                <img src="images/logo.png" alt="Logo" id="logo">
+                <img src="images/logo.png" alt="Logo" id="logo" onclick="scrollToSection(0);">
                 <div class="header-title-container">
                     <h1>Populisme Politique (titre de l'article)</h1>
                     <p id="tags">Société, Politique</p>
@@ -40,10 +40,10 @@
             <div class="header-content">
                 <nav>
                     <ul>
-                        <li><a href="#introduction">Introduction</a></li>
-                        <li><a href="#definition">Définition</a></li>
-                        <li><a href="#histoire">Historique</a></li>
-                        <li><a href="#ressources">Ressources</a></li>
+                        <li><a onclick="scrollToSection(1);">Introduction</a></li>
+                        <li><a onclick="scrollToSection(2);">Définition</a></li>
+                        <li><a onclick="scrollToSection(3);">Historique</a></li>
+                        <li><a onclick="scrollToSection(4);">Ressources</a></li>
                     </ul>
                 </nav>
             </div>
@@ -87,8 +87,40 @@
             </div>
         </section>
 
-        <!--A continuer-->
-            
+        <section id="ressource">
+            <canvas id="ressource_background"></canvas>
+            <div class="ressource-content">
+                <h2>Ressources</h2>
+                <p>Ressources utilisées</p>
+                <div id="ressources-list">
+                    <a class="ressource-element" href="https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi" target="_blank">
+                        <img src="https://www.sciencespo.fr/ceri/sites/bo-k2s.sciences-po.fr.ceri/themes/sciencespo/ceri.png" alt="logo de site">
+                        <h3>Site qui montre ci</h3>
+                        <p>Description qui peut être de taille conséquente mais qui contient ce qui est nécessaire pour les ressources</p>
+                    </a>
+                    <a class="ressource-element" href="https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi" target="_blank">
+                        <img src="https://www.sciencespo.fr/ceri/sites/bo-k2s.sciences-po.fr.ceri/themes/sciencespo/ceri.png" alt="logo de site">
+                        <h3>Site qui montre ci</h3>
+                        <p>Description qui peut être de taille conséquente mais qui contient ce qui est nécessaire pour les ressources</p>
+                    </a>
+                    <a class="ressource-element" href="https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi" target="_blank">
+                        <img src="https://www.sciencespo.fr/ceri/sites/bo-k2s.sciences-po.fr.ceri/themes/sciencespo/ceri.png" alt="logo de site">
+                        <h3>Site qui montre ci</h3>
+                        <p>Description qui peut être de taille conséquente mais qui contient ce qui est nécessaire pour les ressources</p>
+                    </a>
+                    <a class="ressource-element" href="https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi" target="_blank">
+                        <img src="https://www.sciencespo.fr/ceri/sites/bo-k2s.sciences-po.fr.ceri/themes/sciencespo/ceri.png" alt="logo de site">
+                        <h3>Site qui montre ci</h3>
+                        <p>Description qui peut être de taille conséquente mais qui contient ce qui est nécessaire pour les ressources</p>
+                    </a>
+                    <a class="ressource-element" href="https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi" target="_blank">
+                        <img src="https://www.sciencespo.fr/ceri/sites/bo-k2s.sciences-po.fr.ceri/themes/sciencespo/ceri.png" alt="logo de site">
+                        <h3>Site qui montre ci</h3>
+                        <p>Description qui peut être de taille conséquente mais qui contient ce qui est nécessaire pour les ressources</p>
+                    </a>
+                </div>
+            </div>
+        </section> 
     </main>
 
     <footer>
