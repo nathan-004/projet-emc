@@ -53,6 +53,28 @@ canvas {
     z-index: 1;
 }
 
+#cursor {
+    position: fixed;
+    display: none;
+    z-index: 20;
+    pointer-events: none; /* Prevent the cursor from blocking events */
+}
+
+#cursor img {
+    max-width: 200px;
+}
+
+.ressource-link {
+    vertical-align: super;
+    font-size: 0.8em;
+    text-decoration: underline;
+    color: #8A2387;
+}
+
+.ressource-link:hover {
+    cursor: pointer;
+}
+
 /*----------------------Popup-----------------------*/
 #popup-container {
     position: fixed;
@@ -301,6 +323,14 @@ ul {
     z-index: 2;
 }
 
+.definition-content {
+    text-align: left;
+}
+
+.definition-content h2 {
+    text-align: center;
+}
+
 /*----------------------Histoire------------------------*/
 #histoire {
     position: relative;
@@ -369,45 +399,51 @@ ul {
     color: white;
     background-color: black;
     z-index: 2;
+    overflow: visible;
 }
 
 #ressources-list {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
-    scroll-behavior: smooth;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Disable vertical scrolling */
-    white-space: nowrap; /* Prevent content from wrapping */
-    scrollbar-width: none; /* Firefox */
-}
-
-#ressources-list::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    flex-direction: column;
 }
 
 .ressource-element {
-    text-decoration: none;
-    color: black;
-    background-color: white;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content:space-around; /* Centers content vertically */
-    align-items: center;
-    width: 400px;
-    height: 500px;
-    padding: 10px;
-    border-radius: 3%;
+    text-decoration: none;
+    font-style: italic;
+    color: white;
+    gap: 10px;
+    justify-content: center;
+    align-items: space-around;
+    text-align: left;
+    border-top: white 1px solid;
+    border-bottom: white 1px solid;
+    transition: 0.5s;
 }
 
-.ressource-element img {
-    height: 50px;
-    width: auto;
-    margin: 10px;
+.ressource-element:hover {
+    background-color: white;
+    color: #000000;
+    cursor: pointer;
 }
 
-.ressource-element h3 {
-    margin: 0;
+.ressource-animation {
+  animation: backgroundAndTextFade 4s infinite;
+  transition: background-color 2s ease-in-out, color 2s ease-in-out;
+}
+
+@keyframes backgroundAndTextFade {
+  0% {
+    background-color: #000000;  /* fond noir */
+    color: #ffffff;             /* texte blanc */
+  }
+  50% {
+    background-color: #ffffff;  /* fond blanc */
+    color: #000000;             /* texte noir */
+  }
+  100% {
+    background-color: #000000;  /* retour fond noir */
+    color: #ffffff;             /* retour texte blanc */
+  }
 }

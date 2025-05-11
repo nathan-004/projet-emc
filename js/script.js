@@ -22,6 +22,16 @@ const canvasColor = [
 let canvas = document.getElementById(canvasID[currentSection]);
 let ctx = canvas.getContext('2d');
 
+let mouseOnRessources = false;
+const cursor = document.getElementById("cursor");
+const cursorImage = document.getElementById("cursorImage");
+
+const imageLinks = {
+  "https://laviedesidees.fr/Definir-le-populisme#nb14": "images/livre.cur",
+  "https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi": "images/sciencepo.png"
+};
+
+
 document.getElementById("close-button").addEventListener("click", event => {
   document.getElementById("popup-container").style.display = "none";
 });
@@ -46,7 +56,6 @@ const cellSize = 50; // Taille d'une cellule
 let rows, cols;
 let hoverCell = { row: -1, col: -1 };
 
-
 window.addEventListener('wheel', (event) => {
   const now = Date.now();
 
@@ -56,19 +65,19 @@ window.addEventListener('wheel', (event) => {
   if (event.deltaY > 0) {
     if (currentSection < sections.length - 1) {
       currentSection++;
-      scrollToSection(currentSection, true); // indique que ça vient de la molette
+      scrollToSection(currentSection, true);
       lastAnimationTime = now;
     }
-  } else if (event.deltaY < 0) {
+  } else {
     if (currentSection > 0) {
       currentSection--;
       scrollToSection(currentSection, true);
       lastAnimationTime = now;
     }
   }
-});
 
-// scrollToSection accepte un second paramètre "isWheel" pour activer le blocage temporaire
+}, { passive: false });
+
 function scrollToSection(index, isWheel = false) {
   if (isWheel) scrolling = true;
 
@@ -85,14 +94,6 @@ function scrollToSection(index, isWheel = false) {
     }, 600);
   }
 }
-
-const container = document.getElementById('ressources-list');
-
-// Scroll avec la molette (verticale) convertie en scroll horizontal
-container.addEventListener('wheel', (e) => {
-  e.preventDefault();
-  container.scrollLeft += e.deltaY;
-}, { passive: false });
 
 function initNavButtons() {
   const container = document.getElementById("button-container");
@@ -196,3 +197,43 @@ window.addEventListener('resize', resizeCanvas);
 
 resizeCanvas();
 popup("Bienvenue", 'Vous vous trouvez sur une page définissant le terme "populisme politique".</br> Voici quelques conseils pour une expérience optimale : </br>- Regarder le site sur un ordinateur </br>- Ne pas utiliser Firefox </br> </br><span style="text-align: right;">Cordialement</span>', "images/default_image.webp", "white")
+
+document.getElementById("ressources-list").addEventListener("mouseenter", (event) => {
+  mouseOnRessources = true;
+  cursor.style.display = "initial";
+});
+
+document.getElementById("ressources-list").addEventListener("mouseleave", (event) => {
+  mouseOnRessources = false;
+  cursor.style.display = "none";
+});
+
+document.getElementById("ressources-list").addEventListener("mousemove", e=>{
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+document.querySelectorAll(".ressource-element").forEach(el => {
+  el.addEventListener("mouseenter", event=>{
+    if (el.classList.contains("ressource-animation")) {
+      el.classList.remove("ressource-animation");
+    }
+    cursorImage.src = imageLinks[el.href];
+  });
+});
+
+function ressourceLink(index) {
+  const childs = document.querySelectorAll(".ressource-element");
+
+  if (index >= childs.length) {return;}
+
+  childs[index].classList.add("ressource-animation");
+
+  scrollToSection(sections.length-1);
+}
+
+document.querySelectorAll(".ressource-link").forEach(el=>{
+  el.addEventListener("click", event=>{
+    ressourceLink(Number(el.innerHTML)-1);
+  });
+});
