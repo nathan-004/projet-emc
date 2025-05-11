@@ -32,6 +32,13 @@ const imageLinks = {
 };
 
 
+const dictionnaireContainer = document.getElementById("definitionContainer");
+const dictionnaireTexte = document.getElementById("definition-text");
+
+const dictionnaire = {
+  "oligarchie": "Régime politique dans lequel la souveraineté appartient à une classe restreinte et privilégiée ; ce groupe."
+}
+
 document.getElementById("close-button").addEventListener("click", event => {
   document.getElementById("popup-container").style.display = "none";
 });
@@ -235,5 +242,20 @@ function ressourceLink(index) {
 document.querySelectorAll(".ressource-link").forEach(el=>{
   el.addEventListener("click", event=>{
     ressourceLink(Number(el.innerHTML)-1);
+  });
+});
+
+document.querySelectorAll(".mot-definition").forEach(el => {
+  el.addEventListener("mouseenter", e => {
+      dictionnaireTexte.innerHTML = dictionnaire[el.innerHTML];
+
+      dictionnaireContainer.style.left = e.clientX + "px";
+      dictionnaireContainer.style.top = e.clientY + "px";
+
+      dictionnaireContainer.style.display = "initial";
+  });
+
+  el.addEventListener("mouseleave", e => {
+    dictionnaireContainer.style.display = "none";
   });
 });
