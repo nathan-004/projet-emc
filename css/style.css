@@ -36,6 +36,10 @@ body {
     background-color: #000000;
     color: white;
     overflow-x: hidden;
+	-webkit-user-select: none; /* For Chrome, Safari, and Edge */
+	-moz-user-select: none;    /* For Firefox */
+	-ms-user-select: none;     /* For Internet Explorer/Edge */
+	user-select: none;         /* Standard property */
 }
 
 html, body {
@@ -383,8 +387,8 @@ ul {
 }
 
 .event {
-    width: 200px;
-    height: 200px;
+	width: 400px;
+    height: 450px;
     background-color: white;
     color: black;
     display: flex;
@@ -394,6 +398,16 @@ ul {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event h3 {
+	margin: 0;
+}
+
+.event p {
+	text-align: justify;
+	padding: 15px;
+	margin: 0;
 }
 
 .event:hover {
@@ -468,4 +482,34 @@ ul {
     background-color: #000000;  /* retour fond noir */
     color: #ffffff;             /* retour texte blanc */
   }
+}
+
+/*-----------------------Fragilsation--------------------*/
+
+#fragilisation {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    border: white 1px solid;
+    box-sizing: border-box;
+}
+
+.fragilisation-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background-color: black;
+    z-index: 2;
+    overflow: visible;
+}
+
+table, th, td {
+  border: 1px solid #77D7E0;
+  padding: 10px;
+  text-align: justify;
 }

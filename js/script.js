@@ -17,6 +17,7 @@ const canvasColor = [
   ["white", "black", "black"],
   ["white", "black", "black"],
   ["white", "black", "black"],
+  ["white", "black", "black"],
 ];
 
 let canvas = document.getElementById(canvasID[currentSection]);
@@ -28,7 +29,9 @@ const cursorImage = document.getElementById("cursorImage");
 
 const imageLinks = {
   "https://laviedesidees.fr/Definir-le-populisme#nb14": "images/livre.cur",
-  "https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi": "images/sciencepo.png"
+  "https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi": "images/sciencepo.png",
+  "https://fr.wikipedia.org/wiki/Populisme_(politique)": "images/wikipedia.png",
+  "https://www.radiofrance.fr/franceinter/podcasts/zoom-zoom-zen/zoom-zoom-zen-du-jeudi-16-fevrier-2023-4006656": "images/radiofrance.png",
 };
 
 
