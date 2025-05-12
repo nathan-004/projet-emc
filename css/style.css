@@ -72,7 +72,7 @@ canvas {
     vertical-align: super;
     font-size: 0.8em;
     text-decoration: underline;
-    color: #8A2387;
+    color: #77D7E0;
 }
 
 .ressource-link:hover {
@@ -97,7 +97,7 @@ canvas {
 }
 
 .mot-definition {
-    color: #8A2387;
+    color: #77D7E0;
     font-style: italic;
 }
 
@@ -182,7 +182,7 @@ canvas {
 }
 
 #close-button:hover {
-    color: #8A2387;
+    color: #77D7E0;
 }
 
 #close-button:hover::before,

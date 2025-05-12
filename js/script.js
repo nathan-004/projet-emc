@@ -42,11 +42,14 @@ const dictionnaire = {
   "oligarchie": "Régime politique dans lequel la souveraineté appartient à une classe restreinte et privilégiée ; ce groupe."
 }
 
+let lastPub = Date.now();
+const PUB_DELAY = 10000;
+
 document.getElementById("close-button").addEventListener("click", event => {
   document.getElementById("popup-container").style.display = "none";
 });
 
-function popup(title, text, img_src="", backgroundColor="white") {
+function popup(title="", text="", img_src="", backgroundColor="white") {
   document.getElementById("title").innerHTML = title;
   document.getElementById("texte").innerHTML = text;
   
@@ -96,6 +99,7 @@ function scrollToSection(index, isWheel = false) {
   resizeCanvas();
   sections[index].scrollIntoView({ behavior: 'smooth' });
   
+  afficherPub();
   changeColorButton();
 
   if (isWheel) {
@@ -262,3 +266,17 @@ document.querySelectorAll(".mot-definition").forEach(el => {
     dictionnaireContainer.style.display = "none";
   });
 });
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function afficherPub() {
+  const now = Date.now();
+  if (now < lastPub + PUB_DELAY) {return;} // Corrected condition
+
+  let val = getRandomNumber(1, 4);
+  popup("", "", "images/pub" + val.toString() + ".jpeg");
+
+  lastPub = now; // Update the lastPub time after showing the popup
+}
