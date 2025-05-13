@@ -29,10 +29,14 @@ const cursor = document.getElementById("cursor");
 const cursorImage = document.getElementById("cursorImage");
 
 const imageLinks = {
-  "https://laviedesidees.fr/Definir-le-populisme#nb14": "images/livre.cur",
+  "https://laviedesidees.fr/Definir-le-populisme": "images/livre.cur",
   "https://www.sciencespo.fr/ceri/fr/content/dossiersduceri/populisme-mode-d-emploi": "images/sciencepo.png",
   "https://fr.wikipedia.org/wiki/Populisme_(politique)": "images/wikipedia.png",
   "https://www.radiofrance.fr/franceinter/podcasts/zoom-zoom-zen/zoom-zoom-zen-du-jeudi-16-fevrier-2023-4006656": "images/radiofrance.png",
+  "https://www.geo.fr/geopolitique/quest-ce-que-le-populisme-215439": "images/geo.png",
+  "https://perspective.usherbrooke.ca/bilan/servlet/BMDictionnaire/1683": "images/perspective.png",
+  "https://www.touteleurope.eu/vie-politique-des-etats-membres/le-populisme-en-europe/": "images/europe.png",
+  "https://www.vie-publique.fr/parole-dexpert/271075-les-origines-du-populisme-par-philippe-raynaud": "images/viepublique.png",
 };
 
 
@@ -44,6 +48,8 @@ const dictionnaire = {
   "narodnichestvo": "Anciennement Narodniki (« ceux du peuple » en russe) est le nom d'un mouvement socialiste actif de 1860 à la fin du XIXe siècle fondé par des populistes russes <span class='ressource-link'>3</span>",
   "intelligentsia": "Classe sociale russe engagée dans un travail de création et de diffusion de la culture, accompagnée par les artistes et les enseignants",
   "Socialistes Révolutionnaires": "Organisation politique russe du début du XXe siècle, d'inspiration socialiste des narodniki et à base essentiellement paysanne.",
+  "People’s Party": "Le People's Party, ou Populist Party, est un mouvement politique américain fondé en 1891 qui défendait les agriculteurs et les travailleurs contre les élites industrielles et financières.",
+  "antiparlementaire": "Mouvement d'opinion hostile au régime parlementaire (considéré comme favorisant la corruption et l'instabilité gouvernementale)",
 }
 
 let lastPub = Date.now();
@@ -278,8 +284,8 @@ function afficherPub() {
   const now = Date.now();
   if (now < lastPub + PUB_DELAY) {return;} // Corrected condition
 
-  let val = getRandomNumber(1, 4);
-  popup("", "", "images/pub" + val.toString() + ".jpeg");
+  let val = getRandomNumber(1, 3);
+  popup("", "", "images/pub" + val.toString() + ".jpg");
 
   lastPub = now; // Update the lastPub time after showing the popup
 }
