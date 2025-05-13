@@ -87,8 +87,10 @@ canvas {
     background-color: white;
     color: #000000;
     text-align: center;
-    border-radius: 81% 19% 82% 18% / 0% 100% 0% 100%;
+    color: #77D7E0;
+	background-color: #232323;
     padding: 5px 15px;
+	border: 5px solid #77D7E0;
 }
 
 #definition-text {
@@ -512,4 +514,30 @@ table, th, td {
   border: 1px solid #77D7E0;
   padding: 10px;
   text-align: justify;
+}
+
+/*----------------------Conclusion-----------------------*/
+#conclusion {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    border: white 1px solid;
+    box-sizing: border-box;
+}
+
+.conclusion-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: justify;
+    color: white;
+    background-color: black;
+    z-index: 2;
+}
+
+.conclusion-content h2 {
+	text-align: center;
 }

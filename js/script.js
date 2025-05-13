@@ -18,6 +18,7 @@ const canvasColor = [
   ["white", "black", "black"],
   ["white", "black", "black"],
   ["white", "black", "black"],
+  ["white", "black", "black"],
 ];
 
 let canvas = document.getElementById(canvasID[currentSection]);
@@ -39,11 +40,14 @@ const dictionnaireContainer = document.getElementById("definitionContainer");
 const dictionnaireTexte = document.getElementById("definition-text");
 
 const dictionnaire = {
-  "oligarchie": "Régime politique dans lequel la souveraineté appartient à une classe restreinte et privilégiée ; ce groupe."
+  "oligarchie": "Régime politique dans lequel la souveraineté appartient à une classe restreinte et privilégiée.",
+  "narodnichestvo": "Anciennement Narodniki (« ceux du peuple » en russe) est le nom d'un mouvement socialiste actif de 1860 à la fin du XIXe siècle fondé par des populistes russes <span class='ressource-link'>3</span>",
+  "intelligentsia": "Classe sociale russe engagée dans un travail de création et de diffusion de la culture, accompagnée par les artistes et les enseignants",
+  "Socialistes Révolutionnaires": "Organisation politique russe du début du XXe siècle, d'inspiration socialiste des narodniki et à base essentiellement paysanne.",
 }
 
 let lastPub = Date.now();
-const PUB_DELAY = 10000;
+const PUB_DELAY = 20000;
 
 document.getElementById("close-button").addEventListener("click", event => {
   document.getElementById("popup-container").style.display = "none";
@@ -255,11 +259,10 @@ document.querySelectorAll(".ressource-link").forEach(el=>{
 document.querySelectorAll(".mot-definition").forEach(el => {
   el.addEventListener("mouseenter", e => {
       dictionnaireTexte.innerHTML = dictionnaire[el.innerHTML];
-
-      dictionnaireContainer.style.left = e.clientX + "px";
-      dictionnaireContainer.style.top = e.clientY + "px";
-
-      dictionnaireContainer.style.display = "initial";
+	  dictionnaireContainer.style.display = "initial";
+	  
+      dictionnaireContainer.style.left = e.clientX - dictionnaireContainer.offsetWidth/2 + "px";
+      dictionnaireContainer.style.top = e.clientY + 5 + "px";
   });
 
   el.addEventListener("mouseleave", e => {
