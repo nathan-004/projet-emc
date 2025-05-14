@@ -541,3 +541,8 @@ table, th, td {
 .conclusion-content h2 {
 	text-align: center;
 }
+
+.auteurs {
+	text-align: right;
+	font-style: italic;
+}
